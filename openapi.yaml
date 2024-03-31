@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  title: User Management API
+  description: API for managing users
+  version: 1.0.0
+servers:
+  - url: http://localhost:3009/user
+paths:
+  /:id:
+    get:
+      summary: Get user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                  type: object
+                  properties:
+                    userName:
+                      type: string
+                    eMail:
+                      type: string
+                    userId:
+                      type: string
+        '500':
+          description: Error response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: User does not exists
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userName:
+                  type: string
+                eMail:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                  userName:
+                    type: string
+                  eMail:
+                    type: string
+        '500':
+          description: Error response - When username is wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Username should contain only alphabets
+        '500':
+          description: Error response - When username already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Username already exists
+        '500':
+          description: Error response - When email already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Email already exists
+        '500':
+          description: Error response - When email format is  wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Invalid email format
+    put:
+      summary: Update a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                userName:
+                  type: string
+                eMail:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+        '500':
+          description: Error response - When username is wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Username should contain only alphabets
+        '500':
+          description: Error response - When username already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Username already exists
+        '500':
+          description: Error response - When email already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Email already exists
+        '500':
+          description: Error response - When email format is  wrong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: Invalid email format
+    delete:
+      summary: Delete a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+        '500':
+          description: Error response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  message: User does not exists

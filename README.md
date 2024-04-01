@@ -29,3 +29,12 @@ Description: This Node.js backend application provides a set of CRUD (Create, Re
 ## Testing
 
 1. Run `npm run test` to execute the tests.
+
+## Live demo deployed using Render 
+
+1. Base URL : https://user-management-api-with-dockerization.onrender.com
+2. To Fetch the details of users use : Method: GET - Base URL + /user
+    Example: https://user-management-api-with-dockerization.onrender.com/user
+    To Create a user user: Method: POST - Base URL + /user
+    Example: https://user-management-api-with-dockerization.onrender.com/user
+3. The instance will spin down with inactivity, which can delay requests by 50 seconds or more for the first request after inactivity

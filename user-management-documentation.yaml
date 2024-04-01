@@ -1,0 +1,39 @@
+1) GET /:id
+
+Summary: Get user details.
+Parameters: Accepts a user ID in the URL.
+Responses:
+200 OK: Returns user details (username, email, user ID).
+500 Error: Returns an error message if the user doesn't exist.
+
+2) POST /
+
+Summary: Create a new user.
+Parameters: Accepts user details (username, email) in the request body.
+Responses:
+200 OK: Returns user details (user ID, username, email).
+500 Error: Returns error messages for various scenarios:
+If the username contains non-alphabetic characters.
+If the username already exists.
+If the email already exists.
+If the email format is invalid.
+
+3) PUT /
+
+Summary: Update user details.
+Parameters: Accepts user details (user ID, username, email) in the request body.
+Responses:
+200 OK: Returns a success response.
+500 Error: Returns error messages for various scenarios:
+If the username contains non-alphabetic characters.
+If the username already exists.
+If the email already exists.
+If the email format is invalid.
+
+4)DELETE /
+
+Summary: Delete a user.
+Parameters: Accepts user ID in the request body.
+Responses:
+200 OK: Returns a success response.
+500 Error: Returns an error message if the user doesn't exist.
